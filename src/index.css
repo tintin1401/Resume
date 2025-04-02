@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@plugin "flowbite-react/plugin/tailwindcss";
+@source "../.flowbite-react/class-list.json";
+
+
+.bg-gray-200 {
+    background-color: #2F6BA9 !important;
+    border: #2F6BA9 !important;
+  }
+  
+  .dark .bg-gray-700 {
+    background-color: #2F6BA9 !important;
+    border: #2F6BA9 !important;
+
+  }
+  
