@@ -10,8 +10,8 @@ function App() {
         <h3 className="text-3xl font-bold text-[#2F6BA9] mb-6 text-center mt-4 md:text-left md:mt-0">
           Projects
         </h3>
-
-        <a className="md:max-w-sm  sm:mx-5 rounded-lg shadow-sm  cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" href="https://front-escape.vercel.app/" target="_blank">
+<div className="grid gap-8 md:gap-0 md:grid-cols-[auto_auto] justify-center md:justify-start">
+<a className="md:max-w-sm  sm:mx-5 rounded-lg shadow-sm  cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" href="https://front-escape.vercel.app/" target="_blank">
           <img
             className="px-3 py-2 object-cover rounded-2xl w-full  "
             src="./img/escape.png"
@@ -45,6 +45,38 @@ function App() {
               </div>
           </div>
         </a>
+
+        <a className="md:max-w-sm  sm:mx-5 rounded-lg shadow-sm  cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-lg" href="https://exquisite-tapioca-b92078.netlify.app/" target="_blank">
+          <img
+            className="px-3 py-2 object-cover rounded-2xl w-full  "
+            src="./img/Camping.png"
+            alt="escape"
+          />
+          <div className="p-3">
+            <div className="grid grid-cols-[auto_auto] items-center justify-between">
+              <h5 className="text-2xl font-semibold tracking-tight text-[#2F6BA9] ">Camping</h5>
+              <p className="text-white bg-[#2F6BA9] focus:outline-none  rounded-lg text-sm  px-2 py-0.5 text-center  font-semibold  mb-2 ">Web Application</p>
+            </div>
+              <p className="text-gray-500 font-normal text-lg ">Camping is a web platform designed for adventurers looking to book camping experiences and guided tours effortlessly. The website allows users to explore different campsites, select exciting tours, and make hassle-free reservations with ease.</p>
+            <div className="card-footer">
+              <p className="text-gray-400 font-semibold text-md my-2">Technologies used</p>
+              <div className="flex">
+              <svg className="w-6 h-6 text-[#2F6BA9] " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="m3 2 1.578 17.824L12 22l7.467-2.175L21 2H3Zm14.049 6.048H9.075l.172 2.016h7.697l-.626 6.565-4.246 1.381-4.281-1.455-.288-2.932h2.024l.16 1.411 2.4.815 2.346-.763.297-3.005H7.416l-.562-6.05h10.412l-.217 2.017Z"/>
+              </svg>
+              <svg className="w-6 h-6 text-[#2F6BA9]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+              <path d="m3 2 1.578 17.834L12 22l7.468-2.165L21 2H3Zm13.3 14.722-4.293 1.204H12l-4.297-1.204-.297-3.167h2.108l.15 1.526 2.335.639 2.34-.64.245-3.05h-7.27l-.187-2.006h7.64l.174-2.006H6.924l-.176-2.006h10.506l-.954 10.71Z"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" className="text-[#2F6BA9]" width="24" height="24" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path>
+              </svg>
+              </div>
+              </div>
+          </div>
+        </a>
+
+</div>
+        
 
 
 
