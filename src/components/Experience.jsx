@@ -14,18 +14,18 @@ export function Experience() {
         { date: "August 2023 – November 2023", title: "Programming Course Assistant", description: "During my role as a Programming Course Assistant, I was responsible for reviewing and evaluating student code and project documentation. My primary objective was to provide constructive feedback to help students enhance the quality, efficiency, and readability of their code. I ensured that best practices were followed, guiding students in implementing structured and optimized programming solutions.Furthermore, I assisted professors by generating comprehensive performance reports, which helped them make data-driven decisions regarding student progress and curriculum effectiveness. My role also included analyzing large datasets in Excel, creating graphical reports to visualize trends and insights, and supporting students in improving their technical problem-solving skills." },
       ];
     return (
-        <div className="grid justify-center content-center">
-        <h3 className="text-3xl font-bold text-[#2F6BA9] mb-6 text-center mt-4 md:text-left md:mt-0">
+        <div className="grid px-4 lg:px-24">
+        <h3 className="text-3xl font-bold text-[#2F6BA9] dark:text-[#2D9FE5] mb-6 text-center mt-4 md:text-left md:mt-0">
           Professional Experience
         </h3>
-        <Timeline className="grid grid-cols-[auto] justify-center content-center mx-4 md:mx-0 border-dashed!">
+        <Timeline className="grid grid-cols-[auto]  mx-4 md:mx-0 border-dashed!">
         {events.map((event, index) => (
           <TimelineItem key={index}>
-            <TimelinePoint className="bg-[#2F6BA9]!" />
+            <TimelinePoint  />
             <TimelineContent >
               <TimelineTime>{event.date}</TimelineTime>
-              <TimelineTitle className="text-[#2F6BA9]!">{event.title}</TimelineTitle>
-              <TimelineBody className="max-w-2xl">
+              <TimelineTitle className="text-[#2F6BA9]! dark:text-[#2D9FE5]!">{event.title}</TimelineTitle>
+              <TimelineBody className="dark:text-gray-300!">
               {event.description}
               </TimelineBody>
             </TimelineContent>

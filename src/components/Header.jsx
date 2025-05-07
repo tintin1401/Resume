@@ -1,15 +1,76 @@
 import Autor from "/img/autor.jpeg"  ;
 import Resume from "/documents/resume-valverde-cardenas-dana.pdf"
+import { useRef, useEffect } from 'react';
 
 export function Header() {
+   const canvasRef = useRef(null);
+    const animationRef = useRef(null);
+  
+    useEffect(() => {
+      const canvas = canvasRef.current;
+      const ctx = canvas.getContext('2d');
+  
+      const bars = 150;
+      const radius = 100;
+      const centerX = canvas.width / 2;
+      const centerY = canvas.height / 2;
+      let tick = 0;
+
+  
+  
+      // Generamos un array de variaciones únicas por barra
+      const randomOffsets = Array.from({ length: bars }, () => Math.random() * 100);
+      const getResponsiveAmplitude = (i) => {
+        const width = window.innerWidth;
+        const noise = Math.sin((tick + randomOffsets[i]) / 20) * 10;
+
+        if (width < 770) return 130 + noise;       // celulares
+        if (width < 1030) return 80 + noise;      // tablets
+
+
+        return 130 + noise;                       // desktop
+      };
+  
+      const draw = () => {
+        animationRef.current = requestAnimationFrame(draw);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        ctx.translate(centerX, centerY);
+  
+        for (let i = 0; i < bars; i++) {
+          const angle = (i / bars) * 2 * Math.PI;
+  
+          // Creamos amplitudes diferentes para cada barra usando sin + offset
+          const amplitude = getResponsiveAmplitude(i);
+  
+          ctx.save();
+          ctx.rotate(angle);
+          ctx.beginPath();
+          ctx.moveTo(radius, 0);
+          ctx.lineTo(radius + amplitude, 0);
+          ctx.strokeStyle = '#2F6BA9';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+          ctx.restore();
+        }
+  
+        ctx.restore();
+        tick++;
+      };
+  
+      draw();
+  
+      return () => cancelAnimationFrame(animationRef.current);
+    }, []);
+  
     return (
-        <div className="grid grid-cols-[auto] gap-4 md:gap-8 justify-center content-center md:grid-cols-[auto_auto]  ">
-      <div className="font-bold font-[Poppins] text-center content-center md:text-left mt-8 md:mt-0  ">
-      <h2 className="text-2xl mt-1">Hi! I’m</h2>
-      <h2 className="text-3xl text-[#2F6BA9] mt-1">Dana Valverde Cárdenas</h2>
-      <h2 className="text-2xl mt-1">Full stack Developer</h2>
+        <div className="grid grid-cols-[auto] gap-4 md:gap-5 px-4 lg:px-24 content-center md:grid-cols-[60%_auto] lg:grid-cols-[60%_auto]  ">
+      <div className="font-medium font-[Montserrat] text-center justify-center content-center text-black dark:text-white md:text-left mt-8 md:mt-0  ">
+      <h2 className="text-2xl md:text-4xl mt-1">Hi! I’m</h2>
+      <h2 className="text-2xl font-semibold md:text-4xl text-[#2F6BA9] dark:text-[#2D9FE5] mt-1 md:mt-4">Dana Valverde Cárdenas</h2>
+      <h2 className="text-xl md:text-4xl mt-1 md:mt-4">Full stack Developer</h2>
       <a href={Resume} target="_blank" >
-      <button type="button" className="bg-[#2F6BA9] px-4 py-2 rounded-lg text-center md:text-justify text-white mt-4 ">
+      <button  type="button" className="bg-[#2F6BA9] dark:bg-[#2D9FE5] md:text-xl px-4 py-2 rounded-lg text-center md:text-justify text-white mt-5 mb-1 ">
         Download my resume
       </button>
       </a>
@@ -33,11 +94,19 @@ export function Header() {
       </div>
 
     </div>
-    <div className="grid justify-center content-center">
-    <div className="w-[15rem] h-[20rem] rounded-lg flex justify-center content-center md:my-[5rem]">
-      <img src={Autor} className="w-full h-full object-cover rounded-lg" alt="Picture of the author" />
-    </div>
-    </div>
+    <div className="relative lg:w-[30vw] md:h-[70vh] rounded-lg flex justify-center md:my-[2rem]">
+  <canvas
+    ref={canvasRef}
+    width={500}
+    height={500}
+    className="w-full h-full object-cover rounded-lg z-10"
+  />
+  <img
+    src="/img/autor.jpeg"
+    alt="Center"
+    className="absolute top-1/2 left-1/2 w-[85%]  transform -translate-x-1/2 -translate-y-1/2 rounded-full z-20 dark:filter dark:grayscale"
+  />
+</div>
       </div>
     );
 }
